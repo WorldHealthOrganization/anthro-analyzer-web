@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy"
+      content="default-src 'none';
+               script-src 'self' 'sha256-+pCr5n6DcB3FeE1tada/DZh/T86yK3TcLBXwhYncDaI=';
+               style-src 'self' 'sha256-NJTI0ChfwQtOH4W7yiubBOFBrKrYsWD8zcDeHgJIiqU=';
+               base-uri 'self';
+               frame-src 'self';
+               font-src 'self';
+               connect-src 'self'">
+    <title>WHO Anthro Survey Analyser</title>
+    <script
+      src="./shinylive/load-shinylive-sw.js"
+      type="module"
+    ></script>
+    <script type="module">
+      import { runExportedApp } from "./shinylive/shinylive.js";
+      runExportedApp({
+        id: "root",
+        appEngine: "r",
+        relPath: "",
+      });
+    </script>
+    <link rel="stylesheet" href="./shinylive/style-resets.css" />
+    <link rel="stylesheet" href="./shinylive/shinylive.css" />
+    <style>
+      #root {
+        height: 100vh; width: 100vw;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
