@@ -29,6 +29,7 @@ fs::file_copy(
   overwrite = TRUE
 )
 fs::dir_delete(fs::path(export_dir, "edit"))
+fs::file_delete(fs::path(export_dir, ".gitignore"))
 fs::dir_delete(dest_dir)
 
 # The function below is currently intended to create a somewhat simple sbom

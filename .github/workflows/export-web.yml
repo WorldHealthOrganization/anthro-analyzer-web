@@ -45,13 +45,13 @@ jobs:
           Rscript devel/export-shinylive.R
 
       - name: Zip dist
-        run: zip -r anthro-${{ github.ref_name }}-dist.zip dist
+        run: zip -r anthro-dist.zip dist
 
       - name: Upload distribution
         uses: actions/upload-artifact@v6
         with:
           name: distribution.zip
-          path: anthro-${{ github.ref_name }}-dist.zip
+          path: anthro-dist.zip
 
       - name: Upload sbom
         uses: actions/upload-artifact@v6
