@@ -35,7 +35,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Install shinylive
-        run: pak::pak("posit-dev/r-shinylive@0179e311f47144b1570e3de9c401815a20add84e")
+        run: pak::pak("posit-dev/r-shinylive@dfe5d4255275a40dab2d0597ac54c9aee05b415c")
         shell: Rscript {0}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -50,5 +50,11 @@ jobs:
       - name: Upload distribution
         uses: actions/upload-artifact@v6
         with:
-          name: distribution
+          name: distribution.zip
           path: anthro-${{ github.ref_name }}-dist.zip
+
+      - name: Upload sbom
+        uses: actions/upload-artifact@v6
+        with:
+          name: sbom.xlsx
+          path: sbom_shinylive.xlsx
