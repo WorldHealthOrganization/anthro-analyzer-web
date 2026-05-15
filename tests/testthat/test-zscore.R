@@ -143,6 +143,28 @@ test_that("z-score output has an odema column", {
   expect_equal(result[["coedema"]], rep.int("n", nrow(data)))
 })
 
+test_that("z-score output has an c9mo_flag column", {
+  data <- data.frame(
+    sex = 1,
+    age_in_days = c(10, 100, 500, 700, 1000),
+    age_in_months = c(10, 100, 500, 700, 1000) / 30,
+    age_group = "00-30", # just a dummy, not important here
+    weight = c(0.4, 0.5, 10, 40, 41),
+    lenhei = c(34, 65, 110, 140, 141),
+    measure = c("h", "L", "h", "L", "H")
+  )
+  result <- CalculateZScores(
+    data,
+    sex = "sex",
+    weight = "weight",
+    lenhei = "lenhei",
+    lenhei_unit = "measure"
+  )
+  expect_true("c9mo_flag" %in% colnames(result))
+  expect_equal(result$c9mo_flag[is.na(result$cmeasure)], 1)
+  expect_equal(result$c9mo_flag[!is.na(result$cmeasure)], c(0,0,0,0))
+})
+
 test_that("conflicting columns are handled", {
   data <- data.frame(
     sex = 1,
