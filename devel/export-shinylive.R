@@ -1,7 +1,7 @@
 # This script exports the current shiny app to wasm/js/html
 # in stores everything in "dist"
 shinylive_assets_version <- "0.10.8"
-paths_to_copy <- readLines("devel/shinylive_manifest.txt")
+paths_to_copy <- readLines(fs::path("devel", "shinylive_manifest.txt"))
 dest_dir <- file.path(tempdir(), "dist")
 if (fs::dir_exists(dest_dir)) {
   fs::dir_delete(dest_dir)
@@ -24,10 +24,12 @@ shinylive::export(
   assets_version = shinylive_assets_version
 )
 fs::file_copy(
-  "devel/index.html",
+  fs::path("devel", "index.html"),
   fs::path(export_dir, "index.html"),
   overwrite = TRUE
 )
+fs::dir_delete(fs::path(export_dir, "edit"))
+fs::file_delete(fs::path(export_dir, ".gitignore"))
 fs::dir_delete(dest_dir)
 
 # The function below is currently intended to create a somewhat simple sbom
@@ -89,6 +91,7 @@ generate_sbom <- function() {
       file_license = ""
     )
   )
-  pkgs$created_at <- Sys.time()
-  writexl::write_xlsx(pkgs, file.path(export_dir, "sbom_shinylive.xlsx"))
+  pkgs$retrieved_at <- Sys.time()
+  writexl::write_xlsx(pkgs, "sbom_shinylive.xlsx")
 }
+generate_sbom()
