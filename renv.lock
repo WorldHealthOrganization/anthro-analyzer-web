@@ -3049,11 +3049,11 @@
     },
     "survey": {
       "Package": "survey",
-      "Version": "4.4-8",
+      "Version": "4.5",
       "Source": "Repository",
       "Title": "Analysis of Complex Survey Samples",
-      "Description": "Summary statistics, two-sample tests, rank tests, generalised linear models, cumulative link models, Cox models, loglinear models, and general maximum pseudolikelihood estimation for multistage stratified, cluster-sampled, unequally weighted survey samples. Variances by Taylor series linearisation or replicate weights. Post-stratification, calibration, and raking. Two-phase subsampling designs. Graphics. PPS sampling without replacement. Small-area estimation.",
-      "Authors@R": "c(person(given = \"Thomas\", family = \"Lumley\", role = \"aut\"), person(given = \"Peter\", family = \"Gao\", role = \"aut\"), person(given = \"Ben\", family = \"Schneider\", role = \"aut\"), person(given = \"\\\"Thomas\", family = \"Lumley\\\"\", role = \"cre\", email = \"t.lumley@auckland.ac.nz\"))",
+      "Description": "Summary statistics, two-sample tests, rank tests, generalised linear models, cumulative link models, Cox models, loglinear models, and general maximum pseudolikelihood estimation for multistage stratified, cluster-sampled, unequally weighted survey samples. Variances by Taylor series linearisation or replicate weights. Post-stratification, calibration, and raking. Two-phase and multiphase subsampling designs. Graphics. PPS sampling without replacement. Small-area estimation. Dual-frame designs.",
+      "Authors@R": "c(person(given = \"\\\"Thomas\", family = \"Lumley\\\"\", role = \"cre\", email = \"t.lumley@auckland.ac.nz\"), person(given = \"Peter\", family = \"Gao\", role =\"aut\"), person(given = \"Ben\", family = \"Schneider\", role= \"aut\"), person(given = \"Stas\", family= \"Kolenkikov\", role=\"aut\"))",
       "Maintainer": "\"Thomas Lumley\" <t.lumley@auckland.ac.nz>",
       "License": "GPL-2 | GPL-3",
       "Depends": [
@@ -3077,7 +3077,7 @@
         "Rcpp",
         "RcppArmadillo"
       ],
-      "VignetteBuilder": "R.rsp",
+      "VignetteBuilder": "R.rsp, knitr",
       "Suggests": [
         "foreign",
         "MASS",
@@ -3090,11 +3090,14 @@
         "DBI",
         "AER",
         "SUMMER (>= 1.4.0)",
-        "R.rsp"
+        "R.rsp",
+        "knitr",
+        "testthat (>= 3.0.0)"
       ],
       "URL": "http://r-survey.r-forge.r-project.org/survey/",
+      "Config/testthat/edition": "3",
       "NeedsCompilation": "yes",
-      "Author": "Thomas Lumley [aut], Peter Gao [aut], Ben Schneider [aut], \"Thomas Lumley\" [cre]",
+      "Author": "\"Thomas Lumley\" [cre], Peter Gao [aut], Ben Schneider [aut], Stas Kolenkikov [aut]",
       "Repository": "CRAN"
     },
     "survival": {

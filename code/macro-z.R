@@ -16,7 +16,7 @@ CalculateZScores <- function(
   zf_cols <- c(
     "clenhei",
     "cmeasure",
-    #"c9mo_flag",
+    "c9mo_flag",
     "cbmi",
     "csex",
     unlist(
